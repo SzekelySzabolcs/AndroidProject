@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#161616"
+    android:layout_height="match_parent"
+    tools:context=".fragment.Register">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"/>
+
+
+    <RelativeLayout
+
+        android:id="@+id/login_dialo"
+        android:layout_width="328dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="108dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/login_dialo">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="40dp"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_Input_Layout_name"
+            android:layout_width="match_parent"
+            android:layout_marginTop="94dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColorHint="@color/white"
+            app:helperText="Required"
+            app:helperTextTextColor="#B21707"
+            android:hint="Full name"
+            android:layout_height="wrap_content"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/test_Input_EditText_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_Input_Layout_Lastname"
+            android:layout_width="match_parent"
+            android:layout_marginTop="186dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColorHint="@color/white"
+            android:hint="Last name"
+            app:helperText="Required"
+            app:helperTextTextColor="#B21707"
+            android:layout_height="wrap_content"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/test_Input_EditText_Lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/text_Input_Layout_Email"
+            android:layout_width="match_parent"
+            android:layout_marginTop="278dp"
+            android:layout_marginStart="40dp"
+            app:helperText="Required"
+            app:helperTextTextColor="#B21707"
+            android:layout_marginEnd="40dp"
+            android:textColorHint="@color/white"
+            android:hint="Email"
+            android:layout_height="wrap_content"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/test_Input_EditText_Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_Input_Layout_Password"
+            android:layout_width="match_parent"
+            android:layout_marginTop="370dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            app:helperText="Required"
+            app:helperTextTextColor="#B21707"
+            android:textColorHint="@color/white"
+            android:hint="Password"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/white"
+            android:layout_height="wrap_content"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/test_Input_EditText_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/register_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="459dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/button_register" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:layout_marginTop="507dp"
+            android:layout_marginStart="75dp"
+            />
+
+        <TextView
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            android:layout_marginTop="507dp"
+            android:text="Log in"
+            android:textColor="#00B5C0"
+            android:textSize="12dp" />
+    </RelativeLayout>
+
+
+</FrameLayout>

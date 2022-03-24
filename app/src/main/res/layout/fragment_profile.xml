@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#161616"
+    tools:context=".fragment.Profile">
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+      <com.google.android.material.imageview.ShapeableImageView
+          android:layout_width="250dp"
+          android:layout_height="250dp"
+          android:layout_marginTop="80dp"
+          android:layout_gravity="center_horizontal"
+          android:background="@drawable/avatar"
+          app:civ_border_color="#000000"
+          app:civ_border_width="3dp"
+          app:shapeAppearanceOverlay="@style/Circular"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="66dp"
+          android:layout_marginEnd="66dp"
+          android:gravity="center"
+          android:layout_marginTop="20dp"
+          android:text="name"
+          android:textColor="@color/white"
+          android:textSize="24dp" />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          android:textSize="12dp"
+          android:layout_marginTop="24dp"
+          android:layout_marginEnd="66dp"
+          android:layout_marginStart="66dp"
+          android:text="Email"/>
+
+      <TextView
+          android:id="@+id/email"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="66dp"
+          android:layout_marginTop="2dp"
+          android:layout_marginEnd="66dp"
+          android:text="Email"
+          android:textColor="@color/white"
+          android:textSize="14dp" />
+
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          android:textSize="12dp"
+          android:layout_marginTop="24dp"
+          android:layout_marginEnd="66dp"
+          android:layout_marginStart="66dp"
+          android:text="Username"/>
+
+      <TextView
+          android:id="@+id/username"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="66dp"
+          android:layout_marginTop="2dp"
+          android:layout_marginEnd="66dp"
+          android:text="Username"
+          android:textColor="@color/white"
+          android:textSize="14dp" />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          android:textSize="12dp"
+          android:layout_marginTop="24dp"
+          android:layout_marginEnd="66dp"
+          android:layout_marginStart="66dp"
+          android:text="Phone number"/>
+      <TextView
+          android:id="@+id/Phone_number"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textColor="@color/white"
+          android:textSize="14dp"
+          android:layout_marginTop="2dp"
+          android:layout_marginEnd="66dp"
+          android:layout_marginStart="66dp"
+          android:text="0735870888"/>
+
+
+      <RelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="29dp"
+          android:layout_marginStart="66dp"
+          android:layout_marginTop="24dp"
+          android:layout_marginBottom="30dp"
+          android:layout_marginEnd="66dp">
+        <ImageButton
+            android:id="@+id/settings_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Settings"
+            android:textSize="18dp" />
+
+      </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+  </ScrollView>
+
+
+
+
+</FrameLayout>

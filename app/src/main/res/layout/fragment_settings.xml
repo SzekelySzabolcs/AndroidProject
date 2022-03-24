@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#161616"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.Settings">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="80dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/avatar"
+                app:civ_border_color="#000000"
+                app:civ_border_width="3dp"
+                app:shapeAppearanceOverlay="@style/Circular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="66dp"
+                android:layout_marginEnd="66dp"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="name"
+                android:textColor="@color/white"
+                android:textSize="24dp" />
+
+            <EditText
+                android:id="@+id/email_text"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="56dp"
+                android:background="@drawable/rectangle"
+                android:inputType="textEmailAddress"
+                android:paddingStart="16dp"
+                android:paddingTop="18dp"
+                android:paddingEnd="48dp"
+                android:paddingBottom="16dp"
+                android:textColor="#eeeeee"
+                android:textColorHint="#eeeeee" />
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="56dp"
+                android:background="@drawable/rectangle"
+                android:inputType="textEmailAddress"
+                android:paddingStart="16dp"
+                android:paddingTop="18dp"
+                android:paddingEnd="48dp"
+                android:paddingBottom="16dp"
+                android:textColor="#eeeeee"
+                android:textColorHint="#eeeeee" />
+            <EditText
+                android:id="@+id/phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="56dp"
+                android:background="@drawable/rectangle"
+                android:inputType="textEmailAddress"
+                android:paddingStart="16dp"
+                android:paddingTop="18dp"
+                android:paddingEnd="48dp"
+                android:paddingBottom="16dp"
+                android:textColor="#eeeeee"
+                android:textColorHint="#eeeeee" />
+            <TextView
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="56dp"
+                android:background="@drawable/rectangle"
+                android:inputType="textEmailAddress"
+                android:paddingStart="16dp"
+                android:paddingTop="18dp"
+                android:paddingEnd="48dp"
+                android:paddingBottom="16dp"
+                android:textColor="#eeeeee"
+                android:textColorHint="#eeeeee" />
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_publish"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginEnd="56dp"/>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</FrameLayout>
