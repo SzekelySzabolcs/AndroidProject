@@ -29,6 +29,7 @@
 
 
       <TextView
+          android:id="@+id/name"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginStart="66dp"
@@ -110,7 +111,6 @@
           android:background="@drawable/button_defa"
           android:gravity="center"
           android:text="Settings"
-          android:textAppearance="button_register"
           android:visibility="invisible" />
 
       <ImageButton

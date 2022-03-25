@@ -1,6 +1,7 @@
 package com.example.project
 
 import androidx.lifecycle.ViewModel
+import com.example.project.Products.product_class
 
 class Modell:ViewModel() {
     var name = ""
@@ -9,4 +10,5 @@ class Modell:ViewModel() {
     var token = ""
     var creation_time = ""
     var refresh_time = ""
+    val result1: ArrayList<product_class> = ArrayList()
 }
