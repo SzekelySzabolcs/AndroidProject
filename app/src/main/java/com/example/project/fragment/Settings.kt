@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import com.example.project.Modell
 import com.example.project.R
 import com.example.project.databinding.FragmentSettingsBinding
 
 class Settings : Fragment() {
+    val viewmodel: Modell by activityViewModels()
     private lateinit var binding: FragmentSettingsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +31,8 @@ class Settings : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val str=viewmodel.name
+        binding.username.setText(str)
     }
 
     companion object {

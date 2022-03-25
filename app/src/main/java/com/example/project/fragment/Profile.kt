@@ -12,14 +12,15 @@ import com.example.project.Modell
 import com.example.project.R
 import com.example.project.databinding.FragmentProfileBinding
 
-
+private const val ARG_PARAM1 = "param1"
 class Profile : Fragment() {
     val viewmodel:Modell by activityViewModels()
+    private var param1: String? = null
     private lateinit var binding: FragmentProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
+            param1 = it.getString(ARG_PARAM1)
         }
     }
 
@@ -38,7 +39,7 @@ class Profile : Fragment() {
         binding.email.text=viewmodel.email
         binding.PhoneNumber.text=viewmodel.phone_number
 
-        binding.settingsButton.setOnClickListener{
+        binding.PublishButton.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.fragmentContainerView,Settings.newInstance())
@@ -47,6 +48,11 @@ class Profile : Fragment() {
     }
     companion object {
 
-        fun newInstance() = Profile()
+        fun newInstance(param1: String) = Profile().apply {
+            arguments = Bundle().apply {
+                putString(ARG_PARAM1, param1)
+
+            }
+        }
     }
 }
