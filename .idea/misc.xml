@@ -16,6 +16,7 @@
         <entry key="..\:/vizsga kidolgozas/Android projekt/app/src/main/res/layout/fragment_register.xml" value="0.24818840579710144" />
         <entry key="..\:/vizsga kidolgozas/Android projekt/app/src/main/res/layout/fragment_splash.xml" value="0.13020833333333334" />
         <entry key="..\:/vizsga kidolgozas/Android projekt/app/src/main/res/layout/fragment_splash0.xml" value="0.1431159420289855" />
+        <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/drawable-hdpi/image_place.xml" value="0.1755" />
         <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/drawable/avatar.xml" value="0.236" />
         <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/drawable/button.xml" value="0.236" />
         <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/drawable/button_defa.xml" value="0.236" />
@@ -26,6 +27,9 @@
         <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/layout/activity_main.xml" value="0.24547101449275363" />
         <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/layout/activity_main2.xml" value="0.19293478260869565" />
         <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/layout/activity_main3.xml" value="0.24547101449275363" />
+        <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/layout/card_layout.xml" value="0.24547101449275363" />
+        <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/layout/card_layout_my_market.xml" value="0.24547101449275363" />
+        <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/layout/fragment_add__product.xml" value="0.24547101449275363" />
         <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/layout/fragment_create_your_fare.xml" value="0.1" />
         <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/layout/fragment_dashboard.xml" value="0.24547101449275363" />
         <entry key="..\:/vizsga mentes/vizsga kidolgozas/Android projekt/app/src/main/res/layout/fragment_forgot_password.xml" value="0.24547101449275363" />

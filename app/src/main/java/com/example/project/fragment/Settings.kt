@@ -31,8 +31,11 @@ class Settings : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val str=viewmodel.name
-        binding.username.setText(str)
+
+        binding.username.setText(viewmodel.name)
+        binding.phoneNumber.setText(viewmodel.phone_number)
+        binding.emailText.setText(viewmodel.email)
+        binding.password.setText(viewmodel.password)
     }
 
     companion object {

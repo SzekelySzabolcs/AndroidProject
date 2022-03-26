@@ -10,5 +10,7 @@ class Modell:ViewModel() {
     var token = ""
     var creation_time = ""
     var refresh_time = ""
+    var password=""
     val result1: ArrayList<product_class> = ArrayList()
+    val myMarket: ArrayList<product_class> = ArrayList()
 }

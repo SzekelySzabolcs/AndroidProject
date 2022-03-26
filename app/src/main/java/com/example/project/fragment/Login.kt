@@ -102,6 +102,7 @@ class Login : Fragment() {
                         intent.putExtra("phone_number",phone_number)
                         intent.putExtra("creation_time",creation_time)
                         intent.putExtra("refresh_time",refresh_time)
+                        intent.putExtra("password",binding.testInputEditTextPassword.text.toString())
 
                         startActivity(intent)
 
