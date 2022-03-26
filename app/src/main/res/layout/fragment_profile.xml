@@ -100,19 +100,6 @@
           android:layout_marginStart="66dp"
           android:text="0735870888"/>
 
-
-      <TextView
-          android:id="@+id/Publish_button"
-          android:layout_width="match_parent"
-          android:layout_height="28dp"
-          android:layout_marginStart="40dp"
-          android:layout_marginTop="29dp"
-          android:layout_marginEnd="40dp"
-          android:background="@drawable/button_defa"
-          android:gravity="center"
-          android:text="Settings"
-          android:visibility="invisible" />
-
       <ImageButton
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -121,6 +108,19 @@
           android:layout_marginTop="24dp"
           android:background="@drawable/sendmessage"
           />
+      <TextView
+          android:id="@+id/Publish_button"
+          android:layout_width="match_parent"
+          android:layout_height="28dp"
+          android:layout_marginStart="66dp"
+          android:layout_marginTop="29dp"
+          android:layout_marginEnd="66dp"
+          android:background="@drawable/button_defa"
+          android:gravity="center"
+          android:text="Settings"
+          android:visibility="invisible" />
+
+
 
 
 

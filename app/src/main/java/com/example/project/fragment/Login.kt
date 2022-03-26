@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import com.example.project.MainActivity2
 import com.example.project.Model.LoginRequest
 import com.example.project.Model.LoginResponse
+import com.example.project.Modell
 
 import com.example.project.R
 import com.example.project.Retrofit.ApiClient
@@ -23,6 +25,8 @@ import retrofit2.Response
 
 class Login : Fragment() {
     private lateinit var binding:FragmentLoginBinding
+
+     val model:Modell by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,21 +94,16 @@ class Login : Fragment() {
                         val token = response.body()?.token.toString()
                         val creation_time = response.body()?.creation_time
                         val refresh_time = response.body()?.refresh_time
-                        Log.d("login",""+name)
-
-                        val bundle = Bundle()
-                        bundle.putString("token", token)
-                        bundle.putString("username",name)
-                        bundle.putString("email",email)
-                        bundle.putString("phoneNumber",phone_number.toString())
-                        bundle.putString("creationTime",creation_time.toString())
-                        bundle.putString("refreshTime",refresh_time.toString())
 
                         val intent = Intent(context,MainActivity2::class.java)
-                        intent.putExtras(bundle)
+                        intent.putExtra("token",token)
+                        intent.putExtra("username",name)
+                        intent.putExtra("email",email)
+                        intent.putExtra("phone_number",phone_number)
+                        intent.putExtra("creation_time",creation_time)
+                        intent.putExtra("refresh_time",refresh_time)
+
                         startActivity(intent)
-
-
 
 
                     }

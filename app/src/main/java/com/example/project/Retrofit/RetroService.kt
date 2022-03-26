@@ -39,7 +39,9 @@ interface RetroService {
     fun delete(@Header ("token") token:String,
                @Query ("product_id") product_id:String, ):Call<Login_product>
 
-
+    @GET("/products")
+    fun product(@Header ("token") token:String,
+                @Header("limit") limit:Int):Call<Login_product>
 
     @POST("/user/update")
     fun UserUpdate(@Header ("token") token:String,
