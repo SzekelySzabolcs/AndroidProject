@@ -3,7 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:shadowDy="30"
+    android:shadowRadius="50"
 
+    android:dividerHeight="0.0px"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    android:divider="@android:color/transparent"
+    app:cardElevation="10dp"
+    app:cardPreventCornerOverlap="false"
     android:layout_marginTop="10dp"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
@@ -21,14 +29,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/image_place"
-                android:layout_width="88dp"
-                android:layout_height="88dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/image_place" />
+            android:layout_width="88dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="10dp" android:layout_marginStart="10dp" android:layout_marginEnd="10dp"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_color="#000000"
+            app:civ_border_width="3dp"
+            app:shapeAppearanceOverlay="@style/Circular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/price"
@@ -55,11 +67,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <View
+                <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/avatar"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_marginTop="27dp"
+                    app:civ_border_color="#000000"
+                    app:civ_border_width="3dp"
+                    app:shapeAppearanceOverlay="@style/Circular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:background="@drawable/avatar" />
 
                 <TextView

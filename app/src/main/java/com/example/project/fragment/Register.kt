@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.project.Model.RegisterRequest
 import com.example.project.R
+import com.example.project.Retrofit.ApiClient
+import com.example.project.Retrofit.RetroService
 import com.example.project.databinding.FragmentRegisterBinding
 
 class Register : Fragment() {
@@ -49,13 +52,23 @@ class Register : Fragment() {
 
     private fun submitForm() {
         val validUserName=binding.textInputLayoutName.helperText == null
-        val validLastName=binding.textInputLayoutLastname.helperText == null
+        val validLastName=binding.textInputLayoutPhone.helperText == null
         val validEmail=binding.textInputLayoutEmail.helperText == null
         val validPassword=binding.textInputLayoutPassword.helperText == null
 
         if (validUserName && validLastName && validEmail && validPassword){
-            //api
-            Toast.makeText(context,"Api", Toast.LENGTH_LONG).show()        }
+
+            val body = RegisterRequest(
+                binding.testInputEditTextName.text.toString(),
+                binding.testInputEditTextPassword.text.toString(),
+                binding.testInputEditTextEmail.text.toString(),
+                binding.testInputEditTextPhone.text.toString()
+
+            )
+            val request= ApiClient.buildService(RetroService::class.java)
+
+
+                  }
         else{
             invalidForm()
         }
@@ -65,7 +78,7 @@ class Register : Fragment() {
         if (binding.textInputLayoutName.helperText != null){
             Toast.makeText(context,"UserName clear",Toast.LENGTH_LONG).show()
         }
-        if (binding.textInputLayoutLastname.helperText == null){
+        if (binding.textInputLayoutPhone.helperText == null){
             Toast.makeText(context,"LastName clear",Toast.LENGTH_LONG).show()
         }
         if (binding.textInputLayoutEmail.helperText == null){
@@ -100,15 +113,15 @@ class Register : Fragment() {
     }
 
     private fun LastnameFocusListenre() {
-        binding.testInputEditTextLastname.setOnFocusChangeListener { _, b ->
+        binding.testInputEditTextPhone.setOnFocusChangeListener { _, b ->
             if(!b){
-                binding.textInputLayoutLastname.helperText=validLastName()
+                binding.textInputLayoutPhone.helperText=validLastName()
             }
         }
     }
 
     private fun validLastName(): CharSequence? {
-        val nameText=binding.testInputEditTextLastname.text.toString()
+        val nameText=binding.testInputEditTextPhone.text.toString()
         if (nameText.isEmpty()){
             return "Clear"
         }

@@ -16,6 +16,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.project.Model.tokenRefresh
 import com.example.project.Retrofit.ApiClient
 import com.example.project.Retrofit.RetroService
+import com.example.project.fragment.MyFares
 import com.example.project.fragment.MyMarket
 import com.example.project.fragment.Timeline
 
@@ -47,7 +48,7 @@ class MainActivity2 : AppCompatActivity() {
         })
     }
 
-    @Override
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -71,7 +72,7 @@ class MainActivity2 : AppCompatActivity() {
         model.password=password.toString()
         call  = request.tokenr(model.token, model.name)
 
-        var btn:BottomNavigationView = findViewById(R.id.bottom_nav)
+        val btn:BottomNavigationView = findViewById(R.id.bottom_nav)
 
         btn.setOnNavigationItemReselectedListener { item->
             when(item.itemId){
@@ -88,9 +89,19 @@ class MainActivity2 : AppCompatActivity() {
                         ?.replace(R.id.fragmentContainerView,MyMarket.newInstance())
                         //  ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                         ?.commit()
+                    return@setOnNavigationItemReselectedListener
+                }
+                R.id.myFares->{
+                    supportFragmentManager
+                        ?.beginTransaction()
+                        ?.replace(R.id.fragmentContainerView,MyFares.newInstance())
+                        //  ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        ?.commit()
+                   return@setOnNavigationItemReselectedListener
                 }
 
             }
+            return@setOnNavigationItemReselectedListener
         }
 
 

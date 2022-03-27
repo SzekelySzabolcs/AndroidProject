@@ -113,51 +113,47 @@ class Add_Product : Fragment() {
 
         }
 
-        Titlevalid()
-        price()
-        amount()
-        description()
+            binding.Launch.setOnClickListener {
 
-        binding.Launch.setOnClickListener {
-            Launch()
-            val token=model.token
-            val title=binding.titleEditText.text.toString()
-            val descr=binding.descriptionText.text.toString()
-            val price_un=binding.priceInputText.text.toString()
-            val units=binding.amountText.text.toString()
-            val is_activate=true_false
-            val rating=0.0
-            val amount_type=a_type
-            val price_type=p_type
+                val token=model.token
+                val title=binding.titleEditText.text.toString()
+                val descr=binding.descriptionText.text.toString()
+                val price_un=binding.priceInputText.text.toString()
+                val units=binding.amountText.text.toString()
+                val is_activate=true_false
+                val rating=0.0
+                val amount_type=a_type
+                val price_type=p_type
 
-            val request= ApiClient.buildService(RetroService::class.java)
-            val call = request.AddProd(token,title,descr,price_un,units,is_activate,rating,amount_type,price_type)
-            call.enqueue(object :Callback<productAdd>{
-                override fun onResponse(call: Call<productAdd>, response: Response<productAdd>) {
-                    TODO("Not yet implemented")
-                }
+                val request= ApiClient.buildService(RetroService::class.java)
+                val call = request.AddProd(token,title,descr,price_un,units,is_activate,rating,amount_type,price_type)
+                call.enqueue(object :Callback<productAdd>{
+                    override fun onResponse(call: Call<productAdd>, response: Response<productAdd>) {
+                        TODO("Not yet implemented")
+                    }
 
-                override fun onFailure(call: Call<productAdd>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
+                    override fun onFailure(call: Call<productAdd>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
 
-            })
-            
+                })
+
+            }
+
             activity?.supportFragmentManager
                 ?.beginTransaction()
                 ?.replace(R.id.fragmentContainerView,MyMarket.newInstance())
                 ?.commit()
-        }
+
 
         binding.Preview.setOnClickListener {
 
         }
 
-
+//image
         val imageUp=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result->
             val utiImage=result.data?.data
             binding.imageUp.setImageURI(utiImage)
-
         }
         binding.imageUp.setOnClickListener {
             val intente= Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
@@ -168,126 +164,7 @@ class Add_Product : Fragment() {
     }
 
 
-    private fun Launch() {
 
-
-
-        val validtitle=binding.titleEditText.text.toString()
-        val validprice=binding.priceInputText.text.toString()
-        val validamount=binding.amountText.text.toString()
-        val validdescription=binding.descriptionText.text.toString()
-
-        if (validamount.isEmpty() or validtitle.isEmpty() or validprice.isEmpty() or validdescription.isEmpty()){
-
-            invalidFrom()
-            Log.d("addP","ures")
-        }
-        else{
-            resetFrom()
-            Log.d("addP","nem")
-        }
-    }
-
-    private fun invalidFrom() {
-        var message=""
-        if(binding.titleInputLayout.helperText==null){
-            message+="\n \n Text:"+binding.titleInputLayout.helperText
-        }
-        if(binding.priceLayout.helperText==null){
-            message+="\n \n Price:"+binding.priceLayout.helperText
-        }
-        if(binding.amountLayout.helperText==null){
-            message+="\n \n Amount:"+binding.amountLayout.helperText
-        }
-        if(binding.descriptionLayout.helperText==null){
-            message+="\n \n Description:"+binding.descriptionLayout.helperText
-        }
-        Log.d("addP",""+message)
-        AlertDialog.Builder(context)
-            .setTitle("Invalid")
-            .setMessage(message)
-
-            .setPositiveButton("Reset"){
-                    _,_ ->
-
-            }
-
-    }
-
-    private fun resetFrom() {
-
-    }
-
-    private fun description() {
-        binding.descriptionText.setOnFocusChangeListener { view, b ->
-            if (!b) {
-                binding.descriptionLayout.helperText = description_test()
-            }
-        }
-    }
-
-    private fun description_test(): CharSequence? {
-        val text = binding.descriptionText.text.toString()
-        if (text.length > 150) {
-            return "Max 150"
-
-        }
-        return null
-
-    }
-
-    private fun amount() {
-        binding.amountText.setOnFocusChangeListener { view, b ->
-            if (!b) {
-                binding.amountLayout.helperText = amount_test()
-            }
-
-        }
-    }
-
-    private fun amount_test(): CharSequence? {
-        val text = binding.amountText.text.toString()
-        if (text.length > 10) {
-            return "Max 10"
-
-        }
-        return null
-
-    }
-
-    private fun price() {
-        binding.priceInputText.setOnFocusChangeListener { view, b ->
-            if (!b) {
-                binding.priceLayout.helperText = price_test()
-            }
-        }
-    }
-
-    private fun price_test(): CharSequence? {
-        val text = binding.priceInputText.text.toString()
-        if (text.length > 10) {
-            return "Max 10"
-
-        }
-        return null
-    }
-
-    private fun Titlevalid() {
-        binding.titleEditText.setOnFocusChangeListener { view, b ->
-            if (!b) {
-                binding.titleInputLayout.helperText = Title_Test()
-            }
-        }
-    }
-
-    private fun Title_Test(): CharSequence? {
-        val text = binding.titleEditText.text.toString()
-        if (text.length > 30) {
-            return "Max 30"
-
-        }
-        return null
-    }
     companion object {
 
         fun newInstance() = Add_Product()

@@ -8,3 +8,4 @@ data class LoginResponse (
     var creation_time: Long,
     var refresh_time: Long
 )
+

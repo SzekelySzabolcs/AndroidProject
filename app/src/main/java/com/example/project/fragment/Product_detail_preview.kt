@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.project.Modell
 import com.example.project.R
 import com.example.project.databinding.FragmentProductDetailPreviewBinding
@@ -20,6 +22,11 @@ class Product_detail_preview : Fragment() {
     private var param2: String? = null
     var asd=""
 
+    val url= listOf<String>("https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__340.jpg",
+        "https://media.hazipatika.com/cikkek/main/32/2632//alma_alma.jpg",
+        "https://www.pcbolt.eu/shop_ordered/1357/pic/slimpc.jpg",
+        "https://media.hazipatika.com/cikkek/main//0/szolo_n_2-m.jpg?1565786262762"
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -49,7 +56,7 @@ class Product_detail_preview : Fragment() {
                 binding.priceType.setText(i.price_type)
                 binding.usernameName.setText(i.username)
                 val randurl= Random.nextInt(4)
-                //Glide.with(this).load(url[randurl]).apply(RequestOptions.centerCropTransform()).into(binding.imageProd)
+                Glide.with(this).load(url[randurl]).apply(RequestOptions.centerCropTransform()).into(binding.imageProd)
 
                 if(i.is_active.equals("true")){
                     binding.active.setText("Active")

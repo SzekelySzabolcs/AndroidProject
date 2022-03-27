@@ -12,6 +12,9 @@ interface RetroService {
     @POST("/user/login")
     fun login(@Body body: LoginRequest): Call<LoginResponse>
 
+    /*@POST("/user/register")
+    fun registerUser(@Body body: RegisterRequest): Call<ApiResponse>
+*/
     @GET("/user/data")
     fun user(@Header("username")username: String?):Call<mUser>
 

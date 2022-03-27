@@ -3,6 +3,7 @@ package com.example.project.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -76,6 +77,8 @@ class Timeline : Fragment() {
 
             })
 
+
+
     }
 
     override fun onCreateView(
@@ -97,6 +100,30 @@ class Timeline : Fragment() {
                 ?.replace(R.id.fragmentContainerView,Profile.newInstance(viewmodel.name))
                 ?.commit()
         }
+        binding.include.search.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newArray.clear()
+                if (newText!!.isNotEmpty()) {
+                    viewmodel.result1.forEach {
+                        if (it.username.contains(newText)) {
+                            newArray.add(it)
+                        }
+                    }
+                    binding.recycler.adapter!!.notifyDataSetChanged()
+                } else {
+                    newArray.clear()
+                    newArray.addAll(viewmodel.result1)
+                    binding.recycler.adapter!!.notifyDataSetChanged()
+                }
+                return true
+            }
+
+        })
+
         newArray.addAll(viewmodel.result1)
         Log.d("timeline","size "+viewmodel.result1.size.toString())
         layoutManager = LinearLayoutManager(context)
@@ -104,8 +131,8 @@ class Timeline : Fragment() {
         adapter = CustomAdapter(newArray, requireContext())
         binding.recycler.adapter = adapter
 
-
     }
+
 
 
     companion object {
@@ -114,3 +141,5 @@ class Timeline : Fragment() {
     }
 
 }
+
+

@@ -1,6 +1,7 @@
 package com.example.project.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.example.project.Adapter.My_Market_Adapter
 import com.example.project.Modell
 import com.example.project.Products.Login_product
 import com.example.project.Products.product_class
+import com.example.project.R
 import com.example.project.Retrofit.ApiClient
 import com.example.project.Retrofit.RetroService
 import com.example.project.databinding.FragmentMyMarketBinding
@@ -45,6 +47,14 @@ class MyMarket : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.addProd.setOnClickListener {
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.fragmentContainerView, Add_Product.newInstance())
+                ?.commit()
+        }
+
         val request= ApiClient.buildService(RetroService::class.java)
         val call = request.Myproduct(viewmodel.token,"{\"username\":\"${viewmodel.name}\"}")
         call.enqueue(object :Callback<Login_product>{
@@ -83,7 +93,6 @@ class MyMarket : Fragment() {
 
                         viewmodel.myMarket.add(prod)
 
-
                     }
 
                 }
@@ -94,7 +103,7 @@ class MyMarket : Fragment() {
             }
 
         })
-
+        Log.d("testfile",""+viewmodel.myMarket.size.toString())
         layoutManager = LinearLayoutManager(context)
         binding.recycler.layoutManager = layoutManager
         adapter = My_Market_Adapter(viewmodel.myMarket, requireContext()){index,str->deleteItem(index,str)}
@@ -117,7 +126,7 @@ class MyMarket : Fragment() {
             }
 
         })
-
+        Log.d("testfile",""+viewmodel.myMarket.size.toString())
         adapter.setItem(viewmodel.myMarket)
     }
 

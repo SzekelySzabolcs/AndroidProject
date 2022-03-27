@@ -54,21 +54,22 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_Input_Layout_Lastname"
+            android:id="@+id/text_Input_Layout_phone"
             android:layout_width="match_parent"
             android:layout_marginTop="186dp"
             android:layout_marginStart="40dp"
             android:layout_marginEnd="40dp"
             android:textColorHint="@color/white"
-            android:hint="Last name"
+            android:hint="Phone"
             app:helperText="Required"
             app:helperTextTextColor="#B21707"
             android:layout_height="wrap_content"
             >
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/test_Input_EditText_Lastname"
+                android:id="@+id/test_Input_EditText_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:background="@drawable/rectangle"
                 >
 
