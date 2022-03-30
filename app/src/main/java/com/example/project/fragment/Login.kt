@@ -127,7 +127,7 @@ class Login : Fragment() {
             Toast.makeText(context,"UserName clear", Toast.LENGTH_LONG).show()
         }
 
-        if (binding.textInputLayoutPassword.helperText == null){
+        if (binding.textInputLayoutPassword.helperText != null){
             Toast.makeText(context," Password Clear", Toast.LENGTH_LONG).show()
         }
     }

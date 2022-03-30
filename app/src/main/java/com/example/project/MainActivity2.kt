@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -30,6 +32,10 @@ class MainActivity2 : AppCompatActivity() {
 
     lateinit var model: Modell
     private lateinit var handler: Handler
+
+    private val timeline=Timeline.newInstance()
+    private val myMarket=MyMarket.newInstance()
+    private val myFares=MyFares.newInstance()
 
     val request = ApiClient.buildService(RetroService::class.java)
     lateinit var call: Call<tokenRefresh>
@@ -72,43 +78,29 @@ class MainActivity2 : AppCompatActivity() {
         model.password=password.toString()
         call  = request.tokenr(model.token, model.name)
 
+        replaceFragment(timeline)
         val btn:BottomNavigationView = findViewById(R.id.bottom_nav)
-
-        btn.setOnNavigationItemReselectedListener { item->
-            when(item.itemId){
-                R.id.timeline->{
-                    supportFragmentManager
-                        ?.beginTransaction()
-                        ?.replace(R.id.fragmentContainerView,Timeline.newInstance())
-                        //?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        ?.commit()
-                }
-                R.id.myMarket->{
-                    supportFragmentManager
-                        ?.beginTransaction()
-                        ?.replace(R.id.fragmentContainerView,MyMarket.newInstance())
-                        //  ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        ?.commit()
-                    return@setOnNavigationItemReselectedListener
-                }
-                R.id.myFares->{
-                    supportFragmentManager
-                        ?.beginTransaction()
-                        ?.replace(R.id.fragmentContainerView,MyFares.newInstance())
-                        //  ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        ?.commit()
-                   return@setOnNavigationItemReselectedListener
-                }
-
+        btn.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.timeline-> replaceFragment(timeline)
+                R.id.myMarket ->replaceFragment(myMarket)
+                R.id.myFares ->replaceFragment(myFares)
             }
-            return@setOnNavigationItemReselectedListener
+            true
         }
+
 
 
         refreshToken()
 
     }
-
+    private fun replaceFragment(fragment: Fragment){
+            if(fragment !=null){
+                val transaction=supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fragmentContainerView,fragment)
+                transaction.commit()
+            }
+    }
 
     private fun refreshToken() {
 

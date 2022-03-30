@@ -44,7 +44,7 @@ class My_Market_Adapter(var data:ArrayList<product_class>, val context: Context,
             icon=itemView.findViewById(R.id.active_icon)
             active=itemView.findViewById(R.id.active_)
             delete =itemView.findViewById(R.id.delete)
-            button =itemView.findViewById(R.id.button)
+
 
             delete.setOnClickListener {
                 onClickDelete(index,dat.product_id)
@@ -67,12 +67,12 @@ class My_Market_Adapter(var data:ArrayList<product_class>, val context: Context,
             Log.d("user_adapter_m",""+dat.username)
             Log.d("user_adapter_m",""+dat.product_id)
 
-            button.setOnClickListener(){
+           /* button.setOnClickListener(){
                 (context as MainActivity).supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.fragmentContainerView, Product_detail_preview.newInstance(dat.product_id,dat.username))
                     .commit()
-            }
+            }*/
         }
 
     }

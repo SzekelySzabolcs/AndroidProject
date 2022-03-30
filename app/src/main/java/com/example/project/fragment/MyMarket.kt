@@ -22,7 +22,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class MyMarket : Fragment() {
 
     val viewmodel: Modell by activityViewModels()
@@ -41,8 +40,10 @@ class MyMarket : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d("faszom","test2")
         binding= FragmentMyMarketBinding.inflate(layoutInflater)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,10 +52,11 @@ class MyMarket : Fragment() {
         binding.addProd.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()
-                ?.replace(R.id.fragmentContainerView, Add_Product.newInstance())
+                ?.replace(R.id.fragmentContainerView,Add_Product.newInstance())
                 ?.commit()
-        }
 
+        }
+        Log.d("faszom","test1")
         val request= ApiClient.buildService(RetroService::class.java)
         val call = request.Myproduct(viewmodel.token,"{\"username\":\"${viewmodel.name}\"}")
         call.enqueue(object :Callback<Login_product>{
