@@ -42,7 +42,13 @@ class Profile : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.include.textView.setText("Profile")
+        binding.include.backButton.setOnClickListener {
+            activity?.supportFragmentManager
+                    ?.beginTransaction()
+                    ?.replace(R.id.fragmentContainerView,Timeline.newInstance())
+                    ?.commit()
+        }
         val request= ApiClient.buildService(RetroService::class.java)
         val call = request.user(param1)
         call.enqueue(object: Callback<mUser>{
