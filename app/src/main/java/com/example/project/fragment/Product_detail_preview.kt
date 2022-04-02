@@ -46,6 +46,8 @@ class Product_detail_preview : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         for (i in model.result1){
             if (i.product_id.equals(param1)){
                 binding.price.setText(""+i.price_per_unit+"/"+i.price_type)

@@ -49,6 +49,13 @@ class MyMarket : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.include.profile.setOnClickListener {
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.fragmentContainerView,Profile.newInstance(viewmodel.name))
+                ?.commit()
+        }
+
         binding.addProd.setOnClickListener {
             activity?.supportFragmentManager
                 ?.beginTransaction()

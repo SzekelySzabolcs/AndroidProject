@@ -5,9 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.MyMarket">
-
+<include
+    android:id="@+id/include"
+    layout="@layout/toolbar_market"
+    />
     <LinearLayout
         android:id="@+id/linearLayout"
+        android:layout_marginTop="56dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

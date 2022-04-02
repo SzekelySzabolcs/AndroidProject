@@ -2,6 +2,8 @@ package com.example.project.Retrofit
 
 import com.example.project.Model.*
 import com.example.project.Products.Login_product
+import com.example.project.User_Data.UpdateUser
+import com.example.project.User_Data.UpdatedData
 import com.example.project.User_Data.mUser
 import retrofit2.Call
 import retrofit2.http.*
@@ -12,9 +14,9 @@ interface RetroService {
     @POST("/user/login")
     fun login(@Body body: LoginRequest): Call<LoginResponse>
 
-    /*@POST("/user/register")
-    fun registerUser(@Body body: RegisterRequest): Call<ApiResponse>
-*/
+    @POST("/user/register")
+    fun registerUser(@Body body: RegisterRequest): Call<RegisterRespons>
+
     @GET("/user/data")
     fun user(@Header("username")username: String?):Call<mUser>
 
@@ -48,7 +50,5 @@ interface RetroService {
 
     @POST("/user/update")
     fun UserUpdate(@Header ("token") token:String,
-                   @Part("phone_number")phone_number :String,
-                   @Part("email")email :String,
-                   @Part("username")username :String):Call<UserUpdate>
+                  @Body body:UserUpdate):Call<UpdateUser>
 }

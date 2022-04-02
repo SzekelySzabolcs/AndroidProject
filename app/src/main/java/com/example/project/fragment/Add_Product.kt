@@ -47,6 +47,14 @@ class Add_Product : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.include.textView.setText("Create your fare")
+        binding.include.backButton.setOnClickListener {
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(R.id.fragmentContainerView,MyMarket.newInstance())
+                ?.commit()
+        }
         //xml adatok beilesztese
         binding.username.setText(model.name)
         binding.email.setText(model.email)

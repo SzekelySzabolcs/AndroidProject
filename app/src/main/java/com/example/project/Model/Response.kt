@@ -8,4 +8,10 @@ data class LoginResponse (
     var creation_time: Long,
     var refresh_time: Long
 )
+data class RegisterRespons(
+    var username: String,
+    var password:String,
+    var email: String,
+    var phone_number: Int
+        )
 

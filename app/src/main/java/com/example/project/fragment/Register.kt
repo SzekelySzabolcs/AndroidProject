@@ -1,6 +1,7 @@
 package com.example.project.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,10 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.project.Model.RegisterRequest
+import com.example.project.Model.RegisterRespons
+
 import com.example.project.R
 import com.example.project.Retrofit.ApiClient
 import com.example.project.Retrofit.RetroService
 import com.example.project.databinding.FragmentRegisterBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class Register : Fragment() {
 
@@ -55,19 +61,41 @@ class Register : Fragment() {
         val validLastName=binding.textInputLayoutPhone.helperText == null
         val validEmail=binding.textInputLayoutEmail.helperText == null
         val validPassword=binding.textInputLayoutPassword.helperText == null
-
+        Log.d("tester",""+validUserName)
+        Log.d("tester",""+validLastName)
+        Log.d("tester",""+validEmail)
+        Log.d("tester",""+validPassword)
         if (validUserName && validLastName && validEmail && validPassword){
-
+            Log.d("tester","dsadasdas")
             val body = RegisterRequest(
                 binding.testInputEditTextName.text.toString(),
                 binding.testInputEditTextPassword.text.toString(),
                 binding.testInputEditTextEmail.text.toString(),
                 binding.testInputEditTextPhone.text.toString()
-
             )
+            Log.d("tester",""+ binding.testInputEditTextName.text.toString())
+            Log.d("tester",""+binding.testInputEditTextPassword.text.toString())
+            Log.d("tester",""+binding.testInputEditTextEmail.text.toString())
+            Log.d("tester",""+ binding.testInputEditTextPhone.text.toString())
             val request= ApiClient.buildService(RetroService::class.java)
+            val call =request.registerUser(body)
+            call.enqueue(object :Callback<RegisterRespons>{
+                override fun onResponse(
+                    call: Call<RegisterRespons>,
+                    response: Response<RegisterRespons>
+                ) {
+                    Log.d("hiba",""+response.code().toString())
+                    if(response.isSuccessful){
+                        Toast.makeText(context,"Siker",Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(),"Siker",Toast.LENGTH_LONG).show()
+                    }
+                }
 
+                override fun onFailure(call: Call<RegisterRespons>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
 
+            })
                   }
         else{
             invalidForm()
@@ -154,7 +182,7 @@ class Register : Fragment() {
 
     private fun validPassword(): CharSequence? {
         val nameText=binding.testInputEditTextPassword.text.toString()
-        if (nameText.length>5){
+        if (nameText.length<5){
             return "Minimum 5 Character Password "
         }
         return null

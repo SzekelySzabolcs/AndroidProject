@@ -100,6 +100,7 @@
                 android:textColor="#eeeeee"
                 android:textColorHint="#eeeeee" />
             <ImageButton
+                android:id="@+id/setting_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_publish"
